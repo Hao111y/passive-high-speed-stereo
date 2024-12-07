@@ -51,7 +51,8 @@ or run the following command
 ```
 python 3_MoCha-demo.py
 ```
-You will get the disparity maps using MoCha-Stereo under "IMAGES/Output_Result/MoCha-disparity_map/demo-output-2926-fan_7_test"
+You will get the disparity maps using MoCha-Stereo under "IMAGES/Output_Result/MoCha-disparity_map/demo-output-2926-fan_7_test" 
 
+*NOTE: If you face memory allocation errors in this step, try to close the VS Code and relunch the window. You can also try to free the memory before you next run.
 
 
