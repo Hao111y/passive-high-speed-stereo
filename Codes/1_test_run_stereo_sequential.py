@@ -241,9 +241,10 @@ def compute_depth_map(img_stored, H_0, H_1,
     img_stored[1] = img_stored[1][int(mincorner_y1-max_bottom):int(mincorner_y1-max_bottom+cropped_height), :min_width]
     
     # Ensure directories
-    top_folder = f"stereo_img_{exp_time}"
+    IMAGE_folder = "IMAGES/Output_Result"
+    top_folder = f"{IMAGE_folder}/stereo_img_{exp_time}"
     rectified_dir = f"{top_folder}/rectified_img"
-    depth_map_dir = f"{top_folder}/depth_map"
+    depth_map_dir = f"{top_folder}/disparity_map"
     os.makedirs(rectified_dir, exist_ok=True)
     os.makedirs(depth_map_dir, exist_ok=True)
 
@@ -263,7 +264,7 @@ if __name__ == "__main__":
 
     exp_time = "exp2926_fan_7_test"
     print(f"We are running stereo on image sequence of {exp_time}")
-    device_dirs = [f"sort_img/sorted_{exp_time}/dev_0", f"sort_img/sorted_{exp_time}/dev_1"]
+    device_dirs = [f"./IMAGES/sort_img/sorted_{exp_time}/dev_0", f"./IMAGES/sort_img/sorted_{exp_time}/dev_1"]
     for dir_name in device_dirs:
         if not os.path.isdir(dir_name):
             print(f"Directory {dir_name} does not exist. Please check the path.")
@@ -276,7 +277,7 @@ if __name__ == "__main__":
     nb = 17
     n_channels=1
     model = net(in_nc=n_channels, out_nc=n_channels, nc=64, nb=nb, act_mode='R')
-    model_path = "./denoise_module/dncnn_15.pth"
+    model_path = "./Codes/denoise_module/dncnn_15.pth"
     model.load_state_dict(torch.load(model_path), strict=True)
     model.eval()
 
@@ -303,7 +304,7 @@ if __name__ == "__main__":
 
                         for i in range(dev_cnt):
                             # Load the ith device's calibration image number cal_idx+1
-                            calib_img_path = f"sort_img/checkerboard_sort/dev_{i}/checkerboard_cal_exp2926_img_0{cal_idx+1}.png"
+                            calib_img_path = f"./IMAGES/Checkerboard_Calibration/checkerboard_sort/dev_{i}/checkerboard_cal_exp2926_img_0{cal_idx+1}.png"
                             img_cal = imread_pipe(calib_img_path, gamma=gamma)
                             img_cal = lanczos_upscale_pil(img_cal, 3, denoise=True, h=h, templateWindowSize=templateWindowSize, searchWindowSize=searchWindowSize)
 
@@ -333,7 +334,7 @@ if __name__ == "__main__":
 
                         img_stored = []
                         for i in range(dev_cnt):
-                            img = imread_pipe(f"sort_img/sorted_{exp_time}/dev_{i}/{img_name}.png", gamma=gamma)
+                            img = imread_pipe(f"./IMAGES/sort_img/sorted_{exp_time}/dev_{i}/{img_name}.png", gamma=gamma)
                             img = lanczos_upscale_pil(img, 3, denoise=True, h=h, templateWindowSize=templateWindowSize, searchWindowSize=searchWindowSize)
                             img_stored.append(img)
 

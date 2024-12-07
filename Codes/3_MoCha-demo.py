@@ -69,15 +69,15 @@ def demo(args):
 if __name__ == '__main__':
     test_set = 'fan_7_test'
     parser = argparse.ArgumentParser()
-    parser.add_argument('--restore_ckpt', help="restore checkpoint", default='./model/mocha-stereo.pth')
+    parser.add_argument('--restore_ckpt', help="restore checkpoint", default="./model/mocha-stereo.pth")
     parser.add_argument('--save_numpy', action='store_true', help='save output as numpy arrays')
 
     # parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default="./demo-imgs/*/im0.png")
     # parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo-imgs/*/im1.png")
-    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default=f"./rectified_img_2926_{test_set}/dev1_left/*.png")
-    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default=f"./rectified_img_2926_{test_set}/dev0_right/*.png")
+    parser.add_argument('-l', '--left_imgs', help="path to all first (left) frames", default=f"../IMAGES/Output_Result/stereo_img_exp2926_{test_set}/sort_rectified_img/dev1_left/*.png")
+    parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default=f"../IMAGES/Output_Result/stereo_img_exp2926_{test_set}/sort_rectified_img/dev0_right/*.png")
 
-    parser.add_argument('--output_directory', help="directory to save output", default=f"./demo-output-7-2926-{test_set}/")
+    parser.add_argument('--output_directory', help="directory to save output", default=f"../IMAGES/Output_Result/MoCha-disparity_map/demo-output-2926-{test_set}/")
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
     parser.add_argument('--valid_iters', type=int, default=32, help='number of flow-field updates during forward pass')
 

@@ -1,0 +1,23 @@
+numpy
+bitstring
+matplotlib
+numpngw
+# opencv-python
+opencv-contrib-python # can not install opencv-python at the same time
+Pillow
+pyparsing
+python-dateutil
+scipy
+
+# For MoCha-Stereo
+tqdm
+tensorboard
+opt_einsum
+einops
+scipy
+imageio
+# opencv-python-headless
+opencv-contrib-python-headless
+scikit-image
+timm==0.6.5
+six

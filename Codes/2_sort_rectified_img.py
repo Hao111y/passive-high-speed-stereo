@@ -1,10 +1,10 @@
 import os
 import shutil
 
-def sort_files_by_suffix(directory):
+def sort_files_by_suffix(directory,path_to_save):
     # Define the paths for the subfolders
-    dev0_folder = os.path.join(directory, 'dev0_right')
-    dev1_folder = os.path.join(directory, 'dev1_left')
+    dev0_folder = os.path.join(path_to_save, 'dev0_right')
+    dev1_folder = os.path.join(path_to_save, 'dev1_left')
 
     # Create the subfolders if they don't exist
     os.makedirs(dev0_folder, exist_ok=True)
@@ -28,7 +28,8 @@ def sort_files_by_suffix(directory):
 
 if __name__ == "__main__":
     # Use the current directory as the target directory
-    stereo_path = './stereo_img_exp2926_fan_7_test'
+    stereo_path = './IMAGES/Output_Result/stereo_img_exp2926_fan_7_test'
     path_to_be_sort = os.path.join(stereo_path, 'rectified_img')
-    sort_files_by_suffix(path_to_be_sort)
+    path_to_save = os.path.join(stereo_path, 'sort_rectified_img')
+    sort_files_by_suffix(path_to_be_sort,path_to_save)
     print("Files have been sorted successfully.")
