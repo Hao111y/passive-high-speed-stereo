@@ -1,0 +1,2 @@
+Cpdes/* filter=lfs diff=lfs merge=lfs -text
+IMAGES/* filter=lfs diff=lfs merge=lfs -text
