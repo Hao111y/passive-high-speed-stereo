@@ -40,12 +40,16 @@ You can find the sorted rectigied images under "IMAGES/Output_Result/stereo_img_
 ## 6. Run [MoCha-Stereo](https://github.com/ZYangChen/MoCha-Stereo) 
 *You need to enter folder "Codes" before you continue\
 
+```
+cd Codes/
+```
+
 Now the running directory becomes "*/passive-high-speed-stereo/Codes/" 
 
 Run "3_MoCha-demo.py" with click the "Run" button in VS Code\
 or run the following command
 ```
-python Codes/3_MoCha-demo.py
+python 3_MoCha-demo.py
 ```
 You will get the disparity maps using MoCha-Stereo under "IMAGES/Output_Result/MoCha-disparity_map/demo-output-2926-fan_7_test"
 
